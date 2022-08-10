@@ -1,0 +1,46 @@
+﻿@page "/updateproduct/{id}"
+
+<h3>UpdateProduct</h3>
+@if (_pr != null)
+{
+    @if (ShowAuthError)
+    {
+        <div class="alert alert-danger" role="alert">
+            @Error
+        </div>
+    }
+    <EditForm Model="_pr" OnValidSubmit="Update" class="card card-body bg-light mt-5">
+        <DataAnnotationsValidator />
+        <div class="form-group row">
+            <label for="name" class="col-md-2 col-form-label">Name:</label>
+            <div class="col-md-10">
+                <InputText id="name" class="form-control" @bind-Value="_pr.Name" />
+                <ValidationMessage For="@(() => _pr.Name)" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="name" class="col-md-2 col-form-label">Des:</label>
+            <div class="col-md-10">
+                <InputText id="name" class="form-control" @bind-Value="_pr.Description" />
+                <ValidationMessage For="@(() => _pr.Description)" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="name" class="col-md-2 col-form-label">Price:</label>
+            <div class="col-md-10">
+                <InputNumber id="name" class="form-control" @bind-Value="_pr.Price" />
+                <ValidationMessage For="@(() => _pr.Price)" />
+            </div>
+        </div>
+        
+        <div class="row pt-2">
+            <div class="col-md-6 text-center">
+                <button type="submit" class="btn btn-danger">Sửa</button>
+            </div>
+            <div class="col-md-6 text-center">
+                <a href="/products" class="btn btn-primary">Quay Lại</a>
+            </div>
+        </div>
+    </EditForm>
+
+}

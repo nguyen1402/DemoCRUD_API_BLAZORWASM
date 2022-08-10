@@ -1,0 +1,43 @@
+﻿@if (Products == null)
+{
+    <span>
+        Loading products...
+    </span>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Price</th>
+                <th scope="col">Update</th>
+                <th scope="col">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in Products)
+            {
+                <tr>
+                    
+                    <td class="align-middle">
+                        @product.Name
+                    </td>
+                    <td class="align-middle">
+                        @product.Description
+                    </td>
+                    <td class="align-middle">
+                        @product.Price
+                    </td>
+                    <td class="align-middle" >
+                        <button type="button" class="btn btn-info" @onclick="() => RedirectToUpdate(Convert.ToInt32(product.Id))">Update</button>
+                    </td>
+                    <td class="align-middle">
+                        <button type="button" class="btn btn-danger" @onclick="() => RedirectToDelete(Convert.ToInt32(product.Id))">Delete</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

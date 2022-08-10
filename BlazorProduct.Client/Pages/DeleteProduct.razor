@@ -1,0 +1,26 @@
+﻿@page "/deleteProduc/{id}"
+<h3>DeleteProduct</h3>
+
+@if (_pr != null)
+{
+    <EditForm Model="_pr" OnValidSubmit="Delete" class="card card-body bg-light mt-5">
+        <DataAnnotationsValidator />
+        <div class="form-group row">
+            <label for="name" class="row">
+                <p>
+                    <b style="color : red">Bạn có chắc Chắn Muốn Xóa ?</b> sản phẩm <b>@_pr.Name</b> có id là <b>@_pr.Id</b>
+                    không ???
+                </p>
+            </label>
+
+        </div>
+        <div class="row pt-2">
+            <div class="col-md-6 text-center">
+                <button type="submit" class="btn btn-danger">Xóa</button>
+            </div>
+            <div class="col-md-6 text-center">
+                <a href="/monhocs" class="btn btn-primary">Quay Lại</a>
+            </div>
+        </div>
+    </EditForm>
+}
